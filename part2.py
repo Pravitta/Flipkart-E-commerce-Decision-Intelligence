@@ -234,3 +234,4 @@ def run_part2():
 if __name__ == "__main__":
     res = run_part2()
     print(f"Successfully wrote {len(res)} keys to outputs/part2_results.txt")
+
