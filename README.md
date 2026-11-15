@@ -18,7 +18,7 @@ Expected print output from generate_data.py:
 ## Part 1 findings
 
 ### R1.1 Hypothesis testing and practical significance
-The null hypothesis H0 (population mean order value mu = 8.00 hundreds of INR, or INR 800) was rejected because the computed two-tailed z-statistic of 2.8930 exceeds the critical value of 1.96 (reject_h0 = yes). In e-commerce business terms, a Type I error for this claim would occur if Flipkart falsely concluded that average order value has risen above INR 800 when the true population mean remains unchanged at INR 800, leading leadership to inappropriately elevate revenue forecasts, over-purchase higher-ticket inventory, or expand operational fulfillment cost commitments based on an illusory spend gain. The observed difference mean_value - 8.0 equals 0.9382 in column units (which corresponds to INR 93.82 per transaction). While this INR 93.82 increase is statistically significant due to the sample size of 800 records, in practical business operations an 11.7% increase represents a modest revenue expansion that could easily be eroded by return logistics, packaging overheads, or marketing acquisition costs.
+The null hypothesis H0 (population mean order value mu = 8.00 hundreds of INR, or INR 800) was rejected because the computed two-tailed z-statistic of 2.8930 exceeds the critical value of 1.96 (reject_h0 = yes). In e-commerce business terms, a Type I error for this claim would occur if Flipkart falsely concluded that average order value has risen above INR 800 when the true population mean remains unchanged at INR 800, leading leadership to inappropriately elevate revenue forecasts, over-purchase higher-ticket inventory, or expand operational fulfillment cost commitments based on an illusory spend gain. The observed difference mean_value - 8.0 equals 8.9382 - 8.0 = 0.9382 in column units (which corresponds to INR 93.82 per transaction). While this INR 93.82 increase is statistically significant due to the sample size of 800 records, in practical business operations an 11.7% increase represents a modest revenue expansion that could easily be eroded by return logistics, packaging overheads, or marketing acquisition costs.
 
 ### R1.2 Sample size determination
 The required sample size to guarantee a margin of error within 0.50 hundreds of INR (INR 50) at a 95% confidence level is n_required = 1293 customers. Because the current dataset contains only 800 records, the planning team must recognize that the available data is underpowered for estimating population mean spend at the desired precision, requiring 493 additional customer observations (a 61.6% increase in sample volume) before executing margin-sensitive commercial budgeting decisions.
@@ -61,10 +61,10 @@ The recommended model for production deployment is Logistic Regression operating
 
 ### R3.1 K-Means convergence and elbow analysis
 The sequential drops in within-cluster sum of squares across the evaluated cluster counts are:
-- WCSS(2) - WCSS(3) = 659.8282
-- WCSS(3) - WCSS(4) = 108.0739
-- WCSS(4) - WCSS(5) = 171.0575
-- WCSS(5) - WCSS(6) = 45.5466
+- WCSS(2) - WCSS(3) = 2262.6753 - 1602.8471 = 659.8282
+- WCSS(3) - WCSS(4) = 1602.8471 - 1494.7732 = 108.0739
+- WCSS(4) - WCSS(5) = 1494.7732 - 1323.7157 = 171.0575
+- WCSS(5) - WCSS(6) = 1323.7157 - 1278.1691 = 45.5466
 The mathematical elbow criterion supports elbow_k = 3 because the decrease in error from K=3 to K=4 (108.0739) is less than half the decrease from K=2 to K=3 (329.9141). Because the subsequent drop increases to 171.0575 between K=4 and K=5 rather than shrinking monotonically, the pinned starting row positions provide a deterministic, reproducible local clustering solution rather than a guaranteed global optimum. In Step 1 of the PCA procedure, the mean vector across the standardized continuous attributes X1 through X5 was verified to be identically all zeros.
 
 ### R3.2 Customer segment operational profiles
